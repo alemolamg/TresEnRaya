@@ -1,5 +1,6 @@
 package juego;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
 public class Cuadro {
@@ -22,8 +23,12 @@ public class Cuadro {
 	public Cuadro(int x, int y, int ancho, int alto) {
 		this.x = x;
 		this.y = y;
-		this.ancho = ancho;
-		this.alto = alto;
+		
+		this.posX = (ancho / 3) * x;
+		this.posY = (alto / 3) * y;
+		
+		this.ancho = ancho / 3;
+		this.alto = alto / 3;
 	}
 
 	public int getPosX() {
@@ -76,6 +81,8 @@ public class Cuadro {
 
 	public void paint(Graphics g) {
 		System.out.println("PintoUnCuadro");
+		g.setColor(Color.black);
+		g.drawRect(posX, posY, ancho, alto);
 		
 	}
 	

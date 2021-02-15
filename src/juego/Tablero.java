@@ -18,7 +18,8 @@ public class Tablero extends Canvas{
 	
 	@Override
 	public void paint(Graphics g) {
-		this.setBackground(Color.white);
+		this.setBackground(Color.magenta);
+		
 		for (Cuadro cu : cuadros) {
 			cu.paint(g);
 		}
