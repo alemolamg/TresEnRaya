@@ -8,8 +8,9 @@ public class Cuadro {
 	private int x, y;
 	private int posX,posY;
 	private int ancho, alto;
+	private boolean marcado = false;
 	
-	public Cuadro(int x, int y) {
+	/*public Cuadro(int x, int y) {
 		this.x = x;
 		this.y = y;
 		
@@ -18,17 +19,22 @@ public class Cuadro {
 		
 		this.ancho = Juego.getInstance().getVentana().getWidth() / 3;
 		this.alto = Juego.getInstance().getVentana().getHeight() / 3;
-	}
+	}*/
 	
 	public Cuadro(int x, int y, int ancho, int alto) {
 		this.x = x;
 		this.y = y;
 		
-		this.posX = (ancho / 3) * x;
-		this.posY = (alto / 3) * y;
+//		if(x == 0 && y == 0) {
+//			this.posX = ((ancho / 3) * x) + 1 ;
+//			this.posY = ((alto / 3) * y) + 1;
+//		} else {
+			this.posX = ((ancho / 3) * x);
+			this.posY = ((alto / 3) * y);
+//		}
 		
 		this.ancho = ancho / 3;
-		this.alto = alto / 3;
+		this.alto = (alto / 3);
 	}
 
 	public int getPosX() {
@@ -80,9 +86,10 @@ public class Cuadro {
 	}
 
 	public void paint(Graphics g) {
-		System.out.println("PintoUnCuadro");
+		//System.out.println("PintoUnCuadro");
 		g.setColor(Color.black);
 		g.drawRect(posX, posY, ancho, alto);
+		System.out.println("Pinto en x: " + this.posX + " y: " + this.posY + " ancho: " + this.ancho + " alto: " + this.alto);
 		
 	}
 	

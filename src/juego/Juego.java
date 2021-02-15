@@ -26,6 +26,10 @@ public class Juego {
 	public JFrame getVentana() {
 		return ventana;
 	}
+	
+	public List<Cuadro> getCuadros() {
+		return cuadros;
+	}
 
 	public void setVentana(JFrame ventana) {
 		this.ventana = ventana;
@@ -38,11 +42,17 @@ public class Juego {
 		return instance;
 	}
 		
+	public Tablero getTablero() {
+		return tablero;
+	}
+	
 	public Juego() {
-		int anchoCanvas = 700, altoCanvas = 680;
+		int ventanaAncho = 700, ventanaAlto = 705;
 		ventana = new JFrame("3 en Raya");
-		ventana.setBounds(0, 0, anchoCanvas, altoCanvas);
-
+		ventana.setBounds(0, 0, ventanaAncho, ventanaAlto);
+		
+		tablero = new Tablero();
+		
 		// Para colocar objetos sobre la ventana debo asignarle un "layout" (plantilla)
 		// al panel principal de la ventana
 		ventana.getContentPane().setLayout(new BorderLayout());
@@ -52,32 +62,35 @@ public class Juego {
 		ventana.setIgnoreRepaint(true);
 		// Hago que la ventana sea visible
 		ventana.setVisible(true);
-
-		cuadros = creaCuadros(anchoCanvas, altoCanvas); // Da error de bucle infinito;
-		// Creo y agrego un canvas, es un objeto que permitirá dibujar sobre él
-		tablero = new Tablero(cuadros);
+		
+		creaCuadros();
 
 		// Control del evento de cierre de ventana
 		ventana.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		
-		
-		  ventana.addWindowListener(new WindowAdapter() {
-		  
+		ventana.addWindowListener(new WindowAdapter() {  
 		  @Override public void windowClosing(WindowEvent e) { cerrarAplicacion(); }
 		  });
+		
+		ventana.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {	//TODO implementar lector coordenadas.
+				
+				super.mouseClicked(e);
+			}
+		});
+		
+		
 		 
 	}
 	
 	
-	private List<Cuadro> creaCuadros(int ancho, int alto) {
-		List<Cuadro> creaCuadros = new ArrayList<Cuadro>();
+	private void creaCuadros() {
 		
 		for (int i = 0; i < 3; i++) { 
 			for (int j = 0; j < 3; j++) { 
-				creaCuadros.add(new Cuadro (i,j,ancho, alto));
+				this.cuadros.add(new Cuadro (i,j,getTablero().getWidth(), getTablero().getHeight()));
 			}
 		}
-		return creaCuadros;
 	}
 	
 	/**
@@ -98,5 +111,8 @@ public class Juego {
 		Juego.getInstance();
 
 	}
+	
+	
+	
 
 }

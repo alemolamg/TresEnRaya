@@ -10,20 +10,26 @@ import java.util.List;
 public class Tablero extends Canvas{
 	// Atributos
 	
-	List<Cuadro> cuadros = null;
+	//public static List<Cuadro> cuadros = null;
 	
-	public Tablero(List<Cuadro> cuadros) {
-		this.cuadros = cuadros;
+	public Tablero() {
+		super();
 	}
 	
 	@Override
 	public void paint(Graphics g) {
-		this.setBackground(Color.magenta);
+		g.setColor(Color.red);
+		//g.drawRect(0, 1, 100, 100);
 		
-		for (Cuadro cu : cuadros) {
+		for (Cuadro cu : Juego.getInstance().getCuadros()) {
 			cu.paint(g);
-		}
+		} 
 	}
+	
+	
+//	public static void setCuadros(List<Cuadro> cuadros) {
+//		Tablero.cuadros = cuadros;
+//	}
 	
 	
 }
