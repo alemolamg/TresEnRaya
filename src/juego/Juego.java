@@ -110,7 +110,7 @@ public class Juego {
 				y = 2;
 		
 		// añadimos el valor a la matriz.
-		this.matriz
+		//this.matriz
 		
 	}
 	
