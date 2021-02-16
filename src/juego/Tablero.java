@@ -24,12 +24,6 @@ public class Tablero extends Canvas{
 		for (Cuadro cu : Juego.getInstance().getCuadros()) {
 			cu.paint(g);
 		} 
-	}
-	
-	
-//	public static void setCuadros(List<Cuadro> cuadros) {
-//		Tablero.cuadros = cuadros;
-//	}
-	
+	}	
 	
 }

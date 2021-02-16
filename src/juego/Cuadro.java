@@ -89,8 +89,15 @@ public class Cuadro {
 		//System.out.println("PintoUnCuadro");
 		g.setColor(Color.black);
 		g.drawRect(posX, posY, ancho, alto);
-		System.out.println("Pinto en x: " + this.posX + " y: " + this.posY + " ancho: " + this.ancho + " alto: " + this.alto);
+		//System.out.println("Pinto en x: " + this.posX + " y: " + this.posY + " ancho: " + this.ancho + " alto: " + this.alto);
 		
+	}
+	
+	
+	public void paintFicha(Graphics g, int jugador) {
+		this.paint(g);
+		g.setColor(Color.blue);
+		g.drawOval(ancho/2, alto/2, ancho-2, ancho-2);
 	}
 	
 	
