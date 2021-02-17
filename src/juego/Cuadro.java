@@ -10,17 +10,6 @@ public class Cuadro {
 	private int ancho, alto;
 	private boolean marcado = false;
 	
-	/*public Cuadro(int x, int y) {
-		this.x = x;
-		this.y = y;
-		
-		this.posX = (Juego.getInstance().getVentana().getWidth() / 3) * x;
-		this.posY = (Juego.getInstance().getVentana().getHeight() / 3) * y;
-		
-		this.ancho = Juego.getInstance().getVentana().getWidth() / 3;
-		this.alto = Juego.getInstance().getVentana().getHeight() / 3;
-	}*/
-	
 	public Cuadro(int x, int y, int ancho, int alto) {
 		this.x = x;
 		this.y = y;
@@ -36,6 +25,8 @@ public class Cuadro {
 		this.ancho = ancho / 3;
 		this.alto = (alto / 3);
 	}
+	
+	
 
 	public int getPosX() {
 		return posX;
@@ -90,14 +81,28 @@ public class Cuadro {
 		g.setColor(Color.black);
 		g.drawRect(posX, posY, ancho, alto);
 		//System.out.println("Pinto en x: " + this.posX + " y: " + this.posY + " ancho: " + this.ancho + " alto: " + this.alto);
-		
+		paintFicha(g);
 	}
 	
 	
-	public void paintFicha(Graphics g, int jugador) {
-		this.paint(g);
-		g.setColor(Color.blue);
-		g.drawOval(ancho/2, alto/2, ancho-2, ancho-2);
+	public void paintFicha(Graphics g) {
+			if (Juego.getInstance().matriz[this.x][this.y] == Juego.JUGADOR1) {
+				this.marcado = true;
+				g.setColor(Color.blue);
+				g.drawOval(this.posX+10, posY+5, ancho-18, ancho-20);
+			}
+			
+			if (Juego.getInstance().matriz[this.x][this.y] == Juego.JUGADOR2) {
+				this.marcado = true;
+				g.setColor(Color.red);
+				g.drawRect(this.posX+15, posY+15, ancho-24, ancho-35);
+			}
+			
+	}
+	
+	
+	public void setMarcado(boolean marcado) {
+		this.marcado = marcado;
 	}
 	
 	
