@@ -1,2 +1,3 @@
 # TresEnRaya
-Creación de un 3 en raya en java.
+Juego del 3 en rayas en java.
+¡Pásate a probarlo!
