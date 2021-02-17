@@ -14,13 +14,8 @@ public class Cuadro {
 		this.x = x;
 		this.y = y;
 		
-//		if(x == 0 && y == 0) {
-//			this.posX = ((ancho / 3) * x) + 1 ;
-//			this.posY = ((alto / 3) * y) + 1;
-//		} else {
-			this.posX = ((ancho / 3) * x);
-			this.posY = ((alto / 3) * y);
-//		}
+		this.posX = ((ancho / 3) * x);
+		this.posY = ((alto / 3) * y);
 		
 		this.ancho = ancho / 3;
 		this.alto = (alto / 3);

@@ -76,7 +76,7 @@ public class Juego {
 			@Override
 			public void mouseClicked(MouseEvent e) {	//TODO implementar lector coordenadas.
 				super.mouseClicked(e);
-				System.out.println("Pulsado en coordenada x: " +e.getX() + "y: " + e.getY() );
+//				System.out.println("Pulsado en coordenada x: " +e.getX() + "y: " + e.getY() );
 				jugada(e.getX(), e.getY());
 				
 			}
@@ -212,21 +212,21 @@ public class Juego {
 		//Primero miramos para ganar el jugador1
 		
 		if (ganaJugador(JUGADOR1)) { 
-			System.out.println("Ha ganado el jugador " + JUGADOR1 + "\n La partida ha terminado");
+//			System.out.println("Ha ganado el jugador " + JUGADOR1 + "\n La partida ha terminado");
 			terminado = true;
 			cerrarAplicacion(JUGADOR1);
 		}
 		
 		// Verificamos la victoria del jugador dos
 		if (ganaJugador(JUGADOR2)) { 
-			System.out.println("Ha ganado el jugador " + JUGADOR2 + "\n La partida ha terminado");
+//			System.out.println("Ha ganado el jugador " + JUGADOR2 + "\n La partida ha terminado");
 			terminado = true;
 			cerrarAplicacion(JUGADOR2);
 		}
 		
 		if(empate()) {
 			terminado = true;
-			System.out.println("Juego acaba en empate");
+//			System.out.println("Juego acaba en empate");
 			cerrarAplicacionEmpate();
 		}
 		
@@ -254,7 +254,6 @@ public class Juego {
 	}
 	
 	public boolean ganaJugador (int jugador) {
-		boolean victoria = false;
 	
 		//verificamos todas las victorias horizontales
 		if(ganarHorizontal(jugador, matriz[0]))
